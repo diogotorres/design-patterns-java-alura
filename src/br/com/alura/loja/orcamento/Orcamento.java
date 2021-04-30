@@ -1,6 +1,7 @@
 package br.com.alura.loja.orcamento;
 
 import br.com.alura.loja.orcamento.situacao.EmAnalise;
+import br.com.alura.loja.orcamento.situacao.Finalizado;
 import br.com.alura.loja.orcamento.situacao.SituacaoOrcamento;
 import java.math.BigDecimal;
 
@@ -18,6 +19,10 @@ public class Orcamento {
     public void aplicarDescontoExtra() {
         BigDecimal valorDescontoExtra = this.situacao.calcularValorDescontoExtra(this);
         this.valor = this.valor.subtract(valorDescontoExtra);
+    }
+
+    public boolean isFinalizado() {
+        return situacao instanceof Finalizado;
     }
 
     public void aprovar() {
